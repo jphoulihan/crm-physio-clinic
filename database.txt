@@ -1,0 +1,26 @@
+database name: exam_230
+username: new_tester_13
+password: 2TbR6EFo5rjLQ2Ke
+
+
+Data Model
+
+3 collections, somewhat normalizing the relationship between clients and physios
+
+    -clients
+        - personal details
+            -embedded address
+            -embedded additional info
+    
+    -physios
+        -personal details
+            -embedded address
+
+    -sessions
+        -session details
+        -session references id of client and physio
+
+This NoSql data model was chosen because the clients and physios are seperate entities that are only related through sessions
+A client and a physio may have many sessions, but each session only contains 1 client and 1 physio, referenceing each of there
+_id's within the session document reduces file size if the db were to grow, vs the denormalized option of embedding sessions in 
+client or physio documents or embedding physio/client docs in sessions. 

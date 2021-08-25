@@ -1,0 +1,437 @@
+{
+	"info": {
+		"_postman_id": "52ab700a-b532-407e-b2df-1fd0136c845e",
+		"name": "exam_230",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "clients",
+			"item": [
+				{
+					"name": "localhost:3000/clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/clients",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post_client_missing_required_fields",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"title\": \"\",\r\n        \"fname\": \"Bill\",\r\n        \"lname\": \"Murphy\",\r\n        \"mobile\": \"0833022661\",\r\n        \"phone\" : \"625123456\",\r\n        \"email\": \"againtest@gmail.com\",\r\n    \"address\":\r\n        {\r\n        \"add_line_1\": \"\",\r\n        \"add_line_2\": \"\",\r\n        \"town\": \"\",\r\n        \"county_city\": \"Kildare\",\r\n        \"eircode\": \"T12Z3C1\"\r\n        },\r\n    \"additional_info\":\r\n        {\r\n          \"dob\":\"1988/12/27\",\r\n          \"guard_fname\":\"\",\r\n          \"guard_lname\":\"\",\r\n          \"leave_msg\":true,\r\n          \"doctor\":\"Doctor Waters\",\r\n          \"referred_by\":\"GP\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/clients",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_client_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/clients/609d09c76e6ecc1350260516",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clients",
+								"609d09c76e6ecc1350260516"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch_client_spec_fields",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"title\": \"Sir\",\r\n    \"address\":\r\n        {\r\n        \"town\": \"Arklow\",\r\n        \"county_city\": \"Wicklow\"\r\n        },\r\n    \"additional_info\":\r\n        {\r\n          \"leave_msg\":true,\r\n          \"doctor\":\"Sam Burn\",\r\n          \"referred_by\":\"Freind\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/clients/609d0c62b786c70e78c74a07",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clients",
+								"609d0c62b786c70e78c74a07"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_client_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/clients/609d0c62b786c70e78c74a07",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clients",
+								"609d0c62b786c70e78c74a07"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post_client_revised",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"title\": \"Mrs\",\r\n        \"fname\": \"Marge\",\r\n        \"lname\": \"Simpson\",\r\n        \"mobile\": \"6666345671\",\r\n        \"phone\" : \"62118470\",\r\n        \"email\": \"google@gmail.com\",\r\n    \"address\":\r\n        {\r\n        \"add_line_1\": \"21   street name\",\r\n        \"add_line_2\": \"\",\r\n        \"town\": \"Monsterevin\",\r\n        \"county_city\": \"Kildare\",\r\n        \"eircode\": \"B72Y1X7\"\r\n        },\r\n    \"additional_info\":\r\n        {\r\n          \"dob\":\"2010/01/01\",\r\n          \"guardian\":\"Jeff Biggs\",\r\n          \"leave_msg\":false,\r\n          \"doctor\":\"Dr. Dog\",\r\n          \"referred_by\":\"GP\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/clients",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "physios",
+			"item": [
+				{
+					"name": "get_all_physios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/physios",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"physios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post_physio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"title\": \"Mrs\",\r\n        \"fname\": \"Maggie\",\r\n        \"lname\": \"Simpson\",\r\n        \"mobile\": \"0982345671\",\r\n        \"phone\" : \"62758473\",\r\n        \"email\": \"test@gmail.com\",\r\n    \"address\":\r\n        {\r\n        \"add_line_1\": \"21   Talbot Memorial Bridge\",\r\n        \"add_line_2\": \"37   Rosie Hackett Bridge\",\r\n        \"town\": \"Aileens\",\r\n        \"county_city\": \"Kildare\",\r\n        \"eircode\": \"T02Y3C7\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/physios",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"physios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_physio_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/physios",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"physios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_physio_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/physios/609d226932861f27a8e5a876",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"physios",
+								"609d226932861f27a8e5a876"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post_physio_for_del_ex",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"title\": \"Dr\",\r\n        \"fname\": \"John\",\r\n        \"lname\": \"Abdul\",\r\n        \"mobile\": \"0879425436\",\r\n        \"phone\": \"123346677\",\r\n        \"email\": \"bestphys@gmail.com\",\r\n        \"address\": {\r\n            \"add_line_1\": \"14 Down Road\",\r\n            \"add_line_2\": \"\",\r\n            \"town\": \"New Castle West\",\r\n            \"county_city\": \"Limerick\",\r\n            \"eircode\": \"TPC3Y0Z\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/physios",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"physios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch_physio",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"title\": \"Mr\",\r\n        \"phone\" : \"1111111111\",\r\n    \"address\":\r\n        {\r\n        \"town\": \"Kilcock\",\r\n        \"county_city\": \"Kildare\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/physios/609d232332861f27a8e5a87c",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"physios",
+								"609d232332861f27a8e5a87c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sessions",
+			"item": [
+				{
+					"name": "localhost:3000/sessions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/sessions",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post_session_with_client_physio_ids",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"date\": \"2021/06/12\",\r\n        \"time\":\"12:50\",\r\n        \"client_id\": \"609d1de3f7d1f437bc6ac47b\",\r\n        \"physio_id\": \"609d232332861f27a8e5a87c\",\r\n        \"fee\": \"60.00\",\r\n        \"number\": 2,\r\n        \"duration\": 40,\r\n        \"type\": \"Other\",\r\n        \"other\": \"Cup of tea\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/sessions",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_session_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/sessions/609d49e3eaa29d16e8087708",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions",
+								"609d49e3eaa29d16e8087708"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch_session_by_id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fee\": \"25.00\",\r\n    \"number\": 3,\r\n    \"duration\": 57\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/sessions/609d49e3eaa29d16e8087708",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions",
+								"609d49e3eaa29d16e8087708"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_session_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/sessions/609d49e3eaa29d16e8087708",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions",
+								"609d49e3eaa29d16e8087708"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post_session_with_client_physio_ids_fro_del_ex",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"date\": \"2021/08/12\",\r\n        \"time\":\"16:00\",\r\n        \"client_id\": \"609d1de3f7d1f437bc6ac47b\",\r\n        \"physio_id\": \"609d06b70dc3f82bf4120d9e\",\r\n        \"fee\": \"1000.00\",\r\n        \"number\": 9,\r\n        \"duration\": 5,\r\n        \"type\": \"Other\",\r\n        \"other\": \"Consultation\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/sessions",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

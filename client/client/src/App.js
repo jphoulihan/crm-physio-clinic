@@ -2,6 +2,7 @@ import './App.css';
 import Clients from './components/Clients';
 import Physios from './components/Physios';
 import Sessions from './components/Sessions';
+import SubmitModal from './components/SubmitModal';
 
 function App() {
   return (

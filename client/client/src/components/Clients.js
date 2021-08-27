@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import PersonalDetailsForm from './PersonalDetailsForm';
-// import SubmitModal from "./SubmitModal";
 
 export class Clients extends Component {
   constructor() {
     super();
     this.state = {
       clients: [],
+      showModal: false,
       isClients: false,
       title: "",
       fname: "",
@@ -36,19 +35,20 @@ export class Clients extends Component {
     });
   }
 
+  validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+
   //listens for keystrokes updates state by target name
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     });
-
-    console.log(event.target.value);
   };
 
   //on form submission prepares req.body for posting
   handleSubmit = (event) => {
-    event.preventDefault();
-
     const {
       title,
       fname,
@@ -63,6 +63,10 @@ export class Clients extends Component {
       eircode,
     } = this.state;
 
+    if(this.validateEmail(this.state.email) !== true){
+      this.setState({showModal: true});
+    }
+
     const client = {
       title,
       fname,
@@ -74,7 +78,7 @@ export class Clients extends Component {
       add_line_2,
       town,
       county_city,
-      eircode
+      eircode,
     };
 
     axios
@@ -83,22 +87,16 @@ export class Clients extends Component {
       .catch((err) => {
         console.error(err);
       });
-
-      event.target.reset();
+    event.target.reset();
   };
 
   render() {
-
     return (
-      <div className="client-form col-sm m-2">
-        <h1 className="pb-4">Patient</h1>
-        <div
-          className="container-row"
-          // style={{ maxWidth: "400px" }}
-        >
+      <div className="col-sm m-2">
+        <div className="client-form  container-row">
+          <h1 className="pb-4">Patient</h1>
           <form className="row" onSubmit={this.handleSubmit} no validate>
             <div className="form-row pb-2">
-
               <div className=" col-4 mb-3">
                 <input
                   type="text"
@@ -108,30 +106,28 @@ export class Clients extends Component {
                   placeholder="Title"
                 />
               </div>
-              
+
               <div class="row g-2">
-              <div className=" col mb-3-7 mb-3">
-                <input
-                  type="text"
-                  name="fname"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="First Name"
-                  required
-                />
-              </div>
-              <div className=" col mb-3-7 mb-3">
-                <input
-                  type="text"
-                  name="lname"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="Last Name"
-                  required
-                />
-              </div>
-
-
+                <div className=" col mb-3-7 mb-3">
+                  <input
+                    type="text"
+                    name="fname"
+                    onChange={this.handleChange}
+                    class="form-control"
+                    placeholder="First Name"
+                    required
+                  />
+                </div>
+                <div className=" col mb-3-7 mb-3">
+                  <input
+                    type="text"
+                    name="lname"
+                    onChange={this.handleChange}
+                    class="form-control"
+                    placeholder="Last Name"
+                    required
+                  />
+                </div>
               </div>
               <div className=" col mb-3-7 mb-3">
                 <input
@@ -215,37 +211,40 @@ export class Clients extends Component {
                 />
               </div>
             </div>
-            <button type="submit" className="btn btn-primary mb-3">
-              Submit
-            </button>
+            <div className="p-2">
+              <button type="submit" className="btn btn-primary mb-3">
+                Submit
+              </button>
+            </div>
           </form>
         </div>
+
+        <div className="row p-2">
+
         <div className="show-clients">
           <button
             type="button"
-            className="btn btn-dark"
+            className="btn  m-2 btn-dark"
             onClick={this.toggleShowClients}
           >
-            Show Clients
+            Show Patients
           </button>
         </div>
         {this.state.isClients ? (
-          <div>
+          <div className="list">
             {this.state.clients.map((item) => (
-              <ul className="list-group list-group-flush p-2" key={item._id}>
-                <li className="list-group-item">{item.fname}</li>
-                <li className="list-group-item">{item.lname}</li>
+              <ul className="list-group p-2" key={item._id}>
+                <li className="list-group-item">{item.fname +" "+ item.lname}</li>
                 <li className="list-group-item">{item.email}</li>
                 <li className="list-group-item">{item.mobile}</li>
-                <li className="list-group-item">{item.address.eircode}</li>
-                <li className="list-group-item">
-                  <p>Client ID for Session Creation Below</p>
-                </li>
                 <li className="list-group-item">{item._id}</li>
               </ul>
             ))}
           </div>
         ) : null}
+        </div>
+    
+        {/* {this.state.showModal && <SubmitModal />} */}
       </div>
     );
   }

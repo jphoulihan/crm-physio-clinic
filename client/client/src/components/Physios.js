@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import PersonalDetailsForm from "./PersonalDetailsForm";
 
 export class Physios extends Component {
   constructor() {
@@ -55,7 +54,6 @@ export class Physios extends Component {
 
   //on form submission prepares req.body for posting
   handleSubmit = (event) => {
-    event.preventDefault();
 
     const {
       title,
@@ -97,12 +95,9 @@ export class Physios extends Component {
 
   render() {
     return (
-      <div className="physio-form col-sm m-2">
+      <div className="col-sm m-2">
+        <div className="physio-form container-row">
         <h1 className="pb-4">Physiotherapist</h1>
-        <div
-          className="container-row"
-          // style={{ maxWidth: "400px" }}
-        >
           <form className="row" onSubmit={this.handleSubmit} no validate>
             <div className="form-row pb-2">
               <div className=" col-4 mb-3">
@@ -219,40 +214,43 @@ export class Physios extends Component {
                 />
               </div>
             </div>
-            <button type="submit" className="btn btn-primary mb-3">
-              Submit
-            </button>
+
+
+            <div className="p-2">
+              <button type="submit" className="btn btn-primary mb-3">
+                Submit
+              </button>
+            </div>
           </form>
         </div>
+
+
+            <div className="row p-2">
         <div>
           <button
             type="button"
-            className="btn btn-dark"
+            className="btn btn-dark m-2"
             onClick={this.toggleShowPhysios}
           >
             Show Physiotherapists
           </button>
         </div>
         {this.state.isPhysios ? (
-          <div>
+          <div className="list">
             {this.state.physios.map((item) => (
-              <ul className="list-group list-group-flush p-2" key={item._id}>
+              <ul className="list-group p-2" key={item._id}>
                 <li className="list-group-item">
                   Name: {item.fname} {item.lname}
                 </li>
                 <li className="list-group-item">Email: {item.email}</li>
-                <li className="list-group-item">Mobile: {item.mobile}</li>
-                <li className="list-group-item">
-                  Eircode: {item.address.eircode}
-                </li>
-                <li className="list-group-item">
-                  <p>Physio ID for Session Creation Below</p>
-                </li>
+                <li className="list-group-item">Mobile: {item.mobile}</li>     
                 <li className="list-group-item">{item._id}</li>
               </ul>
             ))}
           </div>
         ) : null}
+
+        </div>
         {/* <div className="search p-3">
         <h5>Search for Physiotherapist</h5>
         <SearchForm

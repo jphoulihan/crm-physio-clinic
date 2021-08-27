@@ -4,20 +4,35 @@
   text-align: center;
 }
 
-.client-form, .map-clients{
+.client-form{
   border-radius: 5px;
   padding: 3em;
-  background-color: aliceblue;
+  background-color: rgb(150,229,170);
+}
+
+.map-patients{
+  /* position:absolute; */
+  border-radius: 5px;
+  padding: 3em;
+  background-color: rgb(150,229,170);
+  /* overflow-y: scroll; */
 }
 
 .physio-form, .map-physios{
   border-radius: 5px;
   padding: 3em;
-  background-color: rgb(221, 221, 221);
+  background-color:rgb(188,228,238);
 }
 
-.session-form, .map-sessions{
+.session-form {
   border-radius: 5px;
   padding: 3em;
-  background-color: rgb(255, 252, 221);
+  background-color:rgb(192,180,227);
 }
+
+.list{
+  border-radius: 5px;
+  padding: 3em;
+  /* background-color:rgb(228, 255, 155); */
+}
+

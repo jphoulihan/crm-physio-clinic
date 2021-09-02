@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Resource from "../Resource/Resource";
 import axios from "axios";
 
 export class Sessions extends Component {
@@ -19,13 +20,6 @@ export class Sessions extends Component {
     };
 
     this.toggleSessions = this.toggleSessions.bind(this);
-  }
-
-  componentDidMount() {
-    axios.get("http://localhost:5000/sessions").then((res) => {
-      const sessions = res.data;
-      this.setState({ sessions });
-    });
   }
 
   //show/hide all physios
@@ -212,26 +206,34 @@ export class Sessions extends Component {
             </button>
           </div>
           {this.state.isSessions ? (
-            <div className="list">
-              <table className="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">Time</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Duration</th>
-                  </tr>
-                </thead>
-                {this.state.sessions.map((item) => (
-                  <tbody>
-                    <tr key={item._id}>
-                      <td>{item.time}</td>
-                      <td>{item.type}</td>
-                      <td>{item.duration}</td>
-                    </tr>
-                  </tbody>
-                ))}
-              </table>
-            </div>
+            <Resource
+              path="http://localhost:5000/sessions"
+              render={(data) => {
+                if (data.loading) return <p>Loading Sessions...</p>;
+                return (
+                  <div className="list">
+                    <table className="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">Time</th>
+                          <th scope="col">Type</th>
+                          <th scope="col">Duration</th>
+                        </tr>
+                      </thead>
+                      {data.payload.map((item) => (
+                        <tbody>
+                          <tr key={item._id}>
+                            <td>{item.time}</td>
+                            <td>{item.type}</td>
+                            <td>{item.duration}</td>
+                          </tr>
+                        </tbody>
+                      ))}
+                    </table>
+                  </div>
+                );
+              }}
+            />
           ) : null}
         </div>
       </div>

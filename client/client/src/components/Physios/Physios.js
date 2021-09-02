@@ -1,43 +1,40 @@
 import React, { Component } from "react";
+import Resource from "../Resource/Resource";
 import axios from "axios";
 
-export class Clients extends Component {
+export class Physios extends Component {
   constructor() {
     super();
     this.state = {
-      clients: [],
-      showModal: false,
-      isClients: false,
+      physios: [],
+      isPhysios: false,
       title: "",
       fname: "",
       lname: "",
       mobile: "",
       phone: "",
       email: "",
-      add_line_1: "test",
+      add_line_1: "",
       add_line_2: "",
       town: "",
       county_city: "",
       eircode: "",
+      searchTerm: " ",
     };
 
-    this.toggleShowClients = this.toggleShowClients.bind(this);
+    this.toggleShowPhysios = this.toggleShowPhysios.bind(this);
+    this.onSearchFormChange = this.onSearchFormChange.bind(this);
   }
 
-  toggleShowClients = () => {
-    this.setState((state) => ({ isClients: !state.isClients }));
+  //show/hide all physios
+  toggleShowPhysios = () => {
+    this.setState((state) => ({ isPhysios: !state.isPhysios }));
   };
 
-  componentDidMount() {
-    axios.get("http://localhost:5000/clients").then((res) => {
-      const clients = res.data;
-      this.setState({ clients });
-    });
-  }
-
-  validateEmail(email) {
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email);
+  //getting keyboard inputs to later filter a search
+  onSearchFormChange(event) {
+    this.setState({ searchTerm: event.target.value });
+    console.log(event.target.value);
   }
 
   //listens for keystrokes updates state by target name
@@ -45,10 +42,12 @@ export class Clients extends Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
+    console.log(event.target.value);
   };
 
   //on form submission prepares req.body for posting
   handleSubmit = (event) => {
+
     const {
       title,
       fname,
@@ -60,14 +59,10 @@ export class Clients extends Component {
       add_line_2,
       town,
       county_city,
-      eircode,
+      ericode,
     } = this.state;
 
-    if(this.validateEmail(this.state.email) !== true){
-      this.setState({showModal: true});
-    }
-
-    const client = {
+    const physio = {
       title,
       fname,
       lname,
@@ -78,23 +73,24 @@ export class Clients extends Component {
       add_line_2,
       town,
       county_city,
-      eircode,
+      ericode,
     };
 
     axios
-      .post("http://localhost:5000/clients/insert", client)
-      .then(() => console.log("Client inserted"))
+      .post("http://localhost:5000/physios/insert", physio)
+      .then(() => console.log("Physio inserted"))
       .catch((err) => {
         console.error(err);
       });
+
     event.target.reset();
   };
 
   render() {
     return (
       <div className="col-sm m-2">
-        <div className="client-form  container-row">
-          <h1 className="pb-4">Patient</h1>
+        <div className="physio-form container-row">
+        <h1 className="pb-4">Physiotherapist</h1>
           <form className="row" onSubmit={this.handleSubmit} no validate>
             <div className="form-row pb-2">
               <div className=" col-4 mb-3">
@@ -211,6 +207,8 @@ export class Clients extends Component {
                 />
               </div>
             </div>
+
+
             <div className="p-2">
               <button type="submit" className="btn btn-primary mb-3">
                 Submit
@@ -219,35 +217,114 @@ export class Clients extends Component {
           </form>
         </div>
 
-        <div className="row p-2">
 
-        <div className="show-clients">
+            <div className="row p-2">
+        <div>
           <button
             type="button"
-            className="btn  m-2 btn-dark"
-            onClick={this.toggleShowClients}
+            className="btn btn-dark m-2"
+            onClick={this.toggleShowPhysios}
           >
-            Show Patients
+            Show Physiotherapists
           </button>
         </div>
-        {this.state.isClients ? (
-          <div className="list">
-            {this.state.clients.map((item) => (
-              <ul className="list-group p-2" key={item._id}>
-                <li className="list-group-item">{item.fname +" "+ item.lname}</li>
-                <li className="list-group-item">{item.email}</li>
-                <li className="list-group-item">{item.mobile}</li>
-                <li className="list-group-item">{item._id}</li>
-              </ul>
-            ))}
-          </div>
-        ) : null}
+        {this.state.isPhysios ? (
+          <Resource
+              path="http://localhost:5000/physios"
+              render={(data) => {
+                if (data.loading) return <p>Loading Physiotherapists...</p>;
+                return (
+                  <div className="list">
+                    {data.payload.map((item) => (
+                      <ul className="list-group p-2" key={item._id}>
+                        <li className="list-group-item">
+                          {item.fname + " " + item.lname}
+                        </li>
+                        <li className="list-group-item">{item.email}</li>
+                        <li className="list-group-item">{item.mobile}</li>
+                        <li className="list-group-item">{item._id}</li>
+                      </ul>
+                    ))}
+                  </div>
+                );
+              }}
+            />
+          ) : null}
         </div>
-    
-        {/* {this.state.showModal && <SubmitModal />} */}
+        {/* <div className="search p-3">
+        <h5>Search for Physiotherapist</h5>
+        <SearchForm
+          searchTerm={this.state.searchTerm}
+          onChange={this.onSearchFormChange}
+        />
+        <SearchResults
+          searchTerm={this.state.searchTerm}
+          physioArray={this.state.physios}
+        />
+        </div> */}
       </div>
     );
   }
 }
 
-export default Clients;
+//could not complete search functionality
+class SearchForm extends Component {
+  render() {
+    /*this.props are the properties passed to this component
+    / we have searchTerm and onChange function. Within the input
+    / tag, notice the value of the input is assigned to the searchTerm state
+    / previously an empty string. 
+    / onChange event listener triggers the onSearchForm function 
+    */
+    const searchTermFromProps = this.props.searchTerm;
+    const onChangeFromProps = this.props.onChange;
+
+    return (
+      <div className="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Physiotherapist"
+          value={searchTermFromProps}
+          onChange={onChangeFromProps}
+          aria-describedby="basic-addon1"
+        ></input>
+      </div>
+    );
+  }
+}
+
+class SearchResults extends Component {
+  //search for a physio in the physios array
+  physioFilterFunction(searchTerm) {
+    return function (physio) {
+      let fname = physio.fname;
+      let lname = physio.lname;
+
+      return (
+        searchTerm !== "" &&
+        (fname.includes(searchTerm) || lname.includes(searchTerm))
+      );
+    };
+  }
+
+  render() {
+    return (
+      <table>
+        {this.props.physioArray
+          .filter(this.physioFilterFunction(this.props.searchTerm))
+          .map((a) => (
+            <tbody key={a._id}>
+              {console.log(a.fname)}
+              {console.log(a._id)}
+              <td>{a.fname}</td>
+              <td>{a.lname}</td>
+              <td>{a._id}</td>
+            </tbody>
+          ))}
+      </table>
+    );
+  }
+}
+
+export default Physios;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Resource from "../Resource/Resource";
+import PhysiosDisplay from "./PhysiosDisplay";
 import axios from "axios";
 
 export class Physios extends Component {
@@ -229,39 +229,9 @@ export class Physios extends Component {
           </button>
         </div>
         {this.state.isPhysios ? (
-          <Resource
-              path="http://localhost:5000/physios"
-              render={(data) => {
-                if (data.loading) return <p>Loading Physiotherapists...</p>;
-                return (
-                  <div className="list">
-                    {data.payload.map((item) => (
-                      <ul className="list-group p-2" key={item._id}>
-                        <li className="list-group-item">
-                          {item.fname + " " + item.lname}
-                        </li>
-                        <li className="list-group-item">{item.email}</li>
-                        <li className="list-group-item">{item.mobile}</li>
-                        <li className="list-group-item">{item._id}</li>
-                      </ul>
-                    ))}
-                  </div>
-                );
-              }}
-            />
+          <PhysiosDisplay />
           ) : null}
         </div>
-        {/* <div className="search p-3">
-        <h5>Search for Physiotherapist</h5>
-        <SearchForm
-          searchTerm={this.state.searchTerm}
-          onChange={this.onSearchFormChange}
-        />
-        <SearchResults
-          searchTerm={this.state.searchTerm}
-          physioArray={this.state.physios}
-        />
-        </div> */}
       </div>
     );
   }

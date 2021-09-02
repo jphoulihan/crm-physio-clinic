@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Resource from "../Resource/Resource";
+import ClientsDisplay from "./ClientsDisplay";
 import axios from "axios";
 
 export class Clients extends Component {
@@ -15,7 +15,7 @@ export class Clients extends Component {
       mobile: "",
       phone: "",
       email: "",
-      add_line_1: "test",
+      add_line_1: "",
       add_line_2: "",
       town: "",
       county_city: "",
@@ -28,13 +28,6 @@ export class Clients extends Component {
   toggleShowClients = () => {
     this.setState((state) => ({ isClients: !state.isClients }));
   };
-
-  // componentDidMount() {
-  //   axios.get("http://localhost:5000/clients").then((res) => {
-  //     const clients = res.data;
-  //     this.setState({ clients });
-  //   });
-  // }
 
   validateEmail(email) {
     var re = /\S+@\S+\.\S+/;
@@ -233,30 +226,9 @@ export class Clients extends Component {
             </button>
           </div>
           {this.state.isClients ? (
-            <Resource
-              path="http://localhost:5000/clients"
-              render={(data) => {
-                if (data.loading) return <p>Loading Patients...</p>;
-                return (
-                  <div className="list">
-                    {data.payload.map((item) => (
-                      <ul className="list-group p-2" key={item._id}>
-                        <li className="list-group-item">
-                          {item.fname + " " + item.lname}
-                        </li>
-                        <li className="list-group-item">{item.email}</li>
-                        <li className="list-group-item">{item.mobile}</li>
-                        <li className="list-group-item">{item._id}</li>
-                      </ul>
-                    ))}
-                  </div>
-                );
-              }}
-            />
+            <ClientsDisplay/>
           ) : null}
         </div>
-
-        {/* {this.state.showModal && <SubmitModal />} */}
       </div>
     );
   }

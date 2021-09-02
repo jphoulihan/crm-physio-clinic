@@ -221,8 +221,8 @@ export class Sessions extends Component {
                         </tr>
                       </thead>
                       {data.payload.map((item) => (
-                        <tbody>
-                          <tr key={item._id}>
+                        <tbody key={item._id}>
+                          <tr>
                             <td>{item.time}</td>
                             <td>{item.type}</td>
                             <td>{item.duration}</td>

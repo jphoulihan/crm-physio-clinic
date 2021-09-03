@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ClientsDisplay from "./ClientsDisplay";
+import TextInput from "../Forms/TextInput";
 import axios from "axios";
 
 export class Clients extends Component {
@@ -93,119 +94,67 @@ export class Clients extends Component {
           <h1 className="pb-4">Patient</h1>
           <form className="row" onSubmit={this.handleSubmit} no validate>
             <div className="form-row pb-2">
-              <div className=" col-4 mb-3">
-                <input
-                  type="text"
-                  name="title"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="Title"
-                />
-              </div>
-
+              <TextInput
+                name="title"
+                onChange={this.handleChange}
+                placeholder="Title"
+              />
               <div class="row g-2">
-                <div className=" col mb-3-7 mb-3">
-                  <input
-                    type="text"
-                    name="fname"
-                    onChange={this.handleChange}
-                    class="form-control"
-                    placeholder="First Name"
-                    required
-                  />
-                </div>
-                <div className=" col mb-3-7 mb-3">
-                  <input
-                    type="text"
-                    name="lname"
-                    onChange={this.handleChange}
-                    class="form-control"
-                    placeholder="Last Name"
-                    required
-                  />
-                </div>
-              </div>
-              <div className=" col mb-3-7 mb-3">
-                <input
-                  type="text"
-                  name="mobile"
+                <TextInput
+                  name="fname"
                   onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="Mobile"
-                  required
+                  placeholder="First Name"
+                />
+                <TextInput
+                  name="lname"
+                  onChange={this.handleChange}
+                  placeholder="Last Name"
                 />
               </div>
-              <div className=" col mb-3-7 mb-3">
-                <input
-                  type="text"
-                  name="phone"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="Home Phone"
-                />
-              </div>
-              <div className=" col mb-3-7 mb-3">
-                <input
-                  type="text"
-                  name="email"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="Email"
-                  required
-                />
-              </div>
+              <TextInput
+                name="mobile"
+                onChange={this.handleChange}
+                placeholder="Mobile"
+              />
+              <TextInput
+                name="phone"
+                onChange={this.handleChange}
+                placeholder="Home Phone"
+              />
+              <TextInput
+                name="email"
+                onChange={this.handleChange}
+                placeholder="Email"
+              />
             </div>
 
             <div className="form-row pb-2">
               <h5 className="mb-3">Address</h5>
-              <div className=" col mb-3">
-                <input
-                  type="text"
-                  name="add_line_1"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="Address"
-                  required
-                />
-              </div>
-              <div className=" col mb-3">
-                <input
-                  type="text"
-                  name="add_line_2"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="Address Line 2"
-                />
-              </div>
-              <div className=" col mb-3">
-                <input
-                  type="text"
-                  name="town"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="Town"
-                  required
-                />
-              </div>
-              <div className=" col mb-3">
-                <input
-                  type="text"
-                  name="county_city"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="County/City"
-                  required
-                />
-              </div>
-              <div className=" col mb-3">
-                <input
-                  type="text"
-                  name="eircode"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="Eircode"
-                />
-              </div>
+              <TextInput
+                name="add_line_1"
+                onChange={this.handleChange}
+                placeholder="Address"
+              />
+              <TextInput
+                name="add_line_2"
+                onChange={this.handleChange}
+                placeholder="Address Line 2"
+              />
+              <TextInput
+                name="town"
+                onChange={this.handleChange}
+                placeholder="Town"
+              />
+              <TextInput
+                name="county_city"
+                onChange={this.handleChange}
+                placeholder="County/City"
+              />
+              <TextInput
+                name="eircode"
+                onChange={this.handleChange}
+                placeholder="Eircode"
+              />
             </div>
             <div className="p-2">
               <button type="submit" className="btn btn-primary mb-3">
@@ -225,9 +174,7 @@ export class Clients extends Component {
               Show Patients
             </button>
           </div>
-          {this.state.isClients ? (
-            <ClientsDisplay/>
-          ) : null}
+          {this.state.isClients ? <ClientsDisplay /> : null}
         </div>
       </div>
     );

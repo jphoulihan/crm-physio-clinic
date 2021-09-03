@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PhysiosDisplay from "./PhysiosDisplay";
 import axios from "axios";
+import FormGroupPersonInfo from "../Forms/FormGroupPersonInfo";
+import FormGroupAddress from "../Forms/FormGroupAddress";
 
 export class Physios extends Component {
   constructor() {
@@ -47,7 +49,6 @@ export class Physios extends Component {
 
   //on form submission prepares req.body for posting
   handleSubmit = (event) => {
-
     const {
       title,
       fname,
@@ -89,126 +90,12 @@ export class Physios extends Component {
   render() {
     return (
       <div className="col-sm m-2">
+        {/*Physiotherapist Form*/}
         <div className="physio-form container-row">
-        <h1 className="pb-4">Physiotherapist</h1>
+          <h1 className="pb-4">Physiotherapist</h1>
           <form className="row" onSubmit={this.handleSubmit} no validate>
-            <div className="form-row pb-2">
-              <div className=" col-4 mb-3">
-                <input
-                  type="text"
-                  name="title"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="Title"
-                />
-              </div>
-
-              <div class="row g-2">
-                <div className=" col mb-3-7 mb-3">
-                  <input
-                    type="text"
-                    name="fname"
-                    onChange={this.handleChange}
-                    class="form-control"
-                    placeholder="First Name"
-                    required
-                  />
-                </div>
-                <div className=" col mb-3-7 mb-3">
-                  <input
-                    type="text"
-                    name="lname"
-                    onChange={this.handleChange}
-                    class="form-control"
-                    placeholder="Last Name"
-                    required
-                  />
-                </div>
-              </div>
-              <div className=" col mb-3-7 mb-3">
-                <input
-                  type="text"
-                  name="mobile"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="Mobile"
-                  required
-                />
-              </div>
-              <div className=" col mb-3-7 mb-3">
-                <input
-                  type="text"
-                  name="phone"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="Home Phone"
-                />
-              </div>
-              <div className=" col mb-3-7 mb-3">
-                <input
-                  type="text"
-                  name="email"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="Email"
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="form-row pb-2">
-              <h5 className="mb-3">Address</h5>
-              <div className=" col mb-3">
-                <input
-                  type="text"
-                  name="add_line_1"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="Address"
-                  required
-                />
-              </div>
-              <div className=" col mb-3">
-                <input
-                  type="text"
-                  name="add_line_2"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="Address Line 2"
-                />
-              </div>
-              <div className=" col mb-3">
-                <input
-                  type="text"
-                  name="town"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="Town"
-                  required
-                />
-              </div>
-              <div className=" col mb-3">
-                <input
-                  type="text"
-                  name="county_city"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="County/City"
-                  required
-                />
-              </div>
-              <div className=" col mb-3">
-                <input
-                  type="text"
-                  name="eircode"
-                  onChange={this.handleChange}
-                  class="form-control"
-                  placeholder="Eircode"
-                />
-              </div>
-            </div>
-
-
+            <FormGroupPersonInfo handleChange={this.handleChange} />
+            <FormGroupAddress handleChange={this.handleChange} />
             <div className="p-2">
               <button type="submit" className="btn btn-primary mb-3">
                 Submit
@@ -216,21 +103,18 @@ export class Physios extends Component {
             </div>
           </form>
         </div>
-
-
-            <div className="row p-2">
-        <div>
-          <button
-            type="button"
-            className="btn btn-dark m-2"
-            onClick={this.toggleShowPhysios}
-          >
-            Show Physiotherapists
-          </button>
-        </div>
-        {this.state.isPhysios ? (
-          <PhysiosDisplay />
-          ) : null}
+        {/*Display all Physiotherapists*/}
+        <div className="row p-2">
+          <div>
+            <button
+              type="button"
+              className="btn btn-dark m-2"
+              onClick={this.toggleShowPhysios}
+            >
+              Show Physiotherapists
+            </button>
+          </div>
+          {this.state.isPhysios ? <PhysiosDisplay /> : null}
         </div>
       </div>
     );

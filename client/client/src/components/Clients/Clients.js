@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import ClientsDisplay from "./ClientsDisplay";
-import TextInput from "../Forms/TextInput";
 import axios from "axios";
+import FormGroupPersonInfo from "../Forms/FormGroupPersonInfo";
+import FormGroupAddress from "../Forms/FormGroupAddress";
 
 export class Clients extends Component {
   constructor() {
@@ -93,69 +94,8 @@ export class Clients extends Component {
         <div className="client-form  container-row">
           <h1 className="pb-4">Patient</h1>
           <form className="row" onSubmit={this.handleSubmit} no validate>
-            <div className="form-row pb-2">
-              <TextInput
-                name="title"
-                onChange={this.handleChange}
-                placeholder="Title"
-              />
-              <div class="row g-2">
-                <TextInput
-                  name="fname"
-                  onChange={this.handleChange}
-                  placeholder="First Name"
-                />
-                <TextInput
-                  name="lname"
-                  onChange={this.handleChange}
-                  placeholder="Last Name"
-                />
-              </div>
-              <TextInput
-                name="mobile"
-                onChange={this.handleChange}
-                placeholder="Mobile"
-              />
-              <TextInput
-                name="phone"
-                onChange={this.handleChange}
-                placeholder="Home Phone"
-              />
-              <TextInput
-                name="email"
-                onChange={this.handleChange}
-                placeholder="Email"
-              />
-            </div>
-
-            <div className="form-row pb-2">
-              <h5 className="mb-3">Address</h5>
-              <TextInput
-                name="add_line_1"
-                onChange={this.handleChange}
-                placeholder="Address"
-              />
-              <TextInput
-                name="add_line_2"
-                onChange={this.handleChange}
-                placeholder="Address Line 2"
-              />
-              <TextInput
-                name="town"
-                onChange={this.handleChange}
-                placeholder="Town"
-              />
-              <TextInput
-                name="county_city"
-                onChange={this.handleChange}
-                placeholder="County/City"
-              />
-              <TextInput
-                name="eircode"
-                onChange={this.handleChange}
-                placeholder="Eircode"
-              />
-            </div>
+            <FormGroupPersonInfo handleChange={this.handleChange} />
+            <FormGroupAddress handleChange={this.handleChange} />
             <div className="p-2">
               <button type="submit" className="btn btn-primary mb-3">
                 Submit
@@ -163,7 +103,6 @@ export class Clients extends Component {
             </div>
           </form>
         </div>
-
         <div className="row p-2">
           <div className="show-clients">
             <button

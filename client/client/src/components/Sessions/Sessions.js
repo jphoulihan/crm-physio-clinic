@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Resource from "../Resource/Resource";
+import TextInput from "../Forms/TextInput";
 import axios from "axios";
+import SelectOption from "../Forms/SelectOption";
 
 export class Sessions extends Component {
   constructor() {
@@ -74,117 +76,59 @@ export class Sessions extends Component {
   };
 
   render() {
+
+    const OpeningHours = require("../JSON/OpeningHours.json");
+    const Treatments = require("../JSON/Treatments.json");
+
     return (
       <div className="col-sm-4 m-2">
         <div className="session-form container-row w-100 pb-2">
           <h1 className="pb-3">Sessions</h1>
           <form className="row" onSubmit={this.handleSubmit} novalidate>
             <div className="form-row pb-2">
-              <div className="col mb-3">
-                <input
-                  type="text"
-                  name="date"
-                  onChange={this.handleChange}
-                  className="form-control"
-                  placeholder="Date"
-                  required
-                />
-              </div>
-              <div className="mb-3">
-                <select
-                  class="form-select"
-                  type="button"
-                  aria-label="Default select example"
-                  name="time"
-                  onChange={this.handleChange}
-                  required
-                >
-                  <option selected disabled value="">
-                    Select Time
-                  </option>
-                  <option value="09:00">09:00</option>
-                  <option value="10:00">10:00</option>
-                  <option value="11:00">11:00</option>
-                  <option value="12:00">12:00</option>
-                  <option value="13:00">13:00</option>
-                  <option value="14:00">14:00</option>
-                  <option value="15:00">15:00</option>
-                  <option value="16:00">16:00</option>
-                  <option value="17:00">17:00</option>
-                </select>
-              </div>
-              <div className="mb-3">
-                <select
-                  class="form-select"
-                  type="button"
-                  aria-label="Default select example"
-                  name="type"
-                  onChange={this.handleChange}
-                  required
-                >
-                  <option selected disabled value="">
-                    Select Treatment Type
-                  </option>
-                  <option value="Assessment">Assessment</option>
-                  <option value="Massage Therapy">Massage Therapy</option>
-                  <option value="Hydrotherapy">Hydrotherapy</option>
-                  <option value="Electrotherapy">Electrotherapy</option>
-                  <option value="Rehabilitation">Rehabilitation</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-              <div className="col mb-3">
-                <input
-                  type="text"
-                  name="client_id"
-                  onChange={this.handleChange}
-                  className="form-control"
-                  placeholder="Insert Client ID"
-                  required
-                />
-              </div>
-              <div className="col mb-3">
-                <input
-                  type="text"
-                  name="physio_id"
-                  onChange={this.handleChange}
-                  className="form-control"
-                  placeholder="Insert Physio ID"
-                  required
-                />
-              </div>
-
+            <TextInput
+                name="date"
+                onChange={this.handleChange}
+                placeholder="Date"
+              />
+              <SelectOption
+                name="time"
+                description={"Select Time"}
+                onChange={this.handleChange}
+                data={OpeningHours}
+              />
+              <SelectOption
+                name="type"
+                description={"Select Treatment Type"}
+                onChange={this.handleChange}
+                data={Treatments}
+              />
+              <TextInput
+                name="client_id"
+                onChange={this.handleChange}
+                placeholder="Insert Client ID"
+              />
+              <TextInput
+                name="physio_id"
+                onChange={this.handleChange}
+                placeholder="Insert Phyiso"
+              />
               <div className="row g-2">
-                <div className="col mb-3 ">
-                  <input
-                    type="text"
-                    name="fee"
-                    onChange={this.handleChange}
-                    className="form-control"
-                    placeholder="Fee"
-                    required
-                  />
-                </div>
-                <div className="col mb-3">
-                  <input
-                    type="text"
-                    name="number"
-                    onChange={this.handleChange}
-                    className="form-control"
-                    placeholder="Number"
-                    required
-                  />
-                </div>
-                <div className="col mb-3">
-                  <input
-                    type="text"
-                    name="duration"
-                    onChange={this.handleChange}
-                    className="form-control"
-                    placeholder="Duration"
-                    required
-                  />
-                </div>
+                <TextInput
+                name="fee"
+                onChange={this.handleChange}
+                placeholder="Fee"
+              />
+                <TextInput
+                name="number"
+                onChange={this.handleChange}
+                placeholder="Number"
+              />
+                <TextInput
+                name="duration"
+                onChange={this.handleChange}
+                placeholder="Duration"
+              />
               </div>
               <div className="p-2">
                 <button type="submit" class="btn btn-primary mb-3">

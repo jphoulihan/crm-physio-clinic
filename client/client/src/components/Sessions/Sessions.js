@@ -4,6 +4,7 @@ import TextInput from "../Forms/TextInput";
 import axios from "axios";
 import SelectOption from "../Forms/SelectOption";
 import SessionData from "../SessionData/SessionData";
+import SelectOptionID from "../Forms/SelectOptionID";
 
 export class Sessions extends Component {
   constructor() {
@@ -103,15 +104,33 @@ export class Sessions extends Component {
                 onChange={this.handleChange}
                 data={Treatments}
               />
-              <TextInput
-                name="client_id"
-                onChange={this.handleChange}
-                placeholder="Insert Client ID"
+              <Resource
+                path="http://localhost:5000/clients"
+                render={(data) => {
+                  if (data.loading) return <p>Loading Sessions...</p>;
+                  return (
+                    <SelectOptionID
+                      name="client_id"
+                      onChange={this.handleChange}
+                      description={"Client Select"}
+                      data={data.payload}
+                    />
+                  );
+                }}
               />
-              <TextInput
-                name="physio_id"
-                onChange={this.handleChange}
-                placeholder="Insert Phyiso"
+              <Resource
+                path="http://localhost:5000/physios"
+                render={(data) => {
+                  if (data.loading) return <p>Loading Sessions...</p>;
+                  return (
+                    <SelectOptionID
+                      name="physio_id"
+                      onChange={this.handleChange}
+                      description={"Physio Select"}
+                      data={data.payload}
+                    />
+                  );
+                }}
               />
               <div className="row g-2">
                 <TextInput

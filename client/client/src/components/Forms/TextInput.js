@@ -1,4 +1,7 @@
 function TextInput(props) {
+
+    const {required} = props;
+
     function handleChange(e) {
       if (props.onChange) {
         props.onChange(e);
@@ -12,7 +15,7 @@ function TextInput(props) {
           className="form-control"
           placeholder={props.placeholder}
           onChange={handleChange}
-          required
+          required={required}
         />
       </div>
     );

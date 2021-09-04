@@ -7,7 +7,7 @@ const PersonalData = (props) => {
           <li className="list-group-item">{person.fname + " " + person.lname}</li>
           <li className="list-group-item">{person.email}</li>
           <li className="list-group-item">{person.mobile}</li>
-          <li className="list-group-item">{person._id}</li>
+          <button type="button" value={person._id} classname="list-group-item list-group-item-action">Add to Session</button>
         </ul>
       ))}
     </div>

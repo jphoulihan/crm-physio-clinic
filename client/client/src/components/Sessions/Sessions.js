@@ -3,6 +3,7 @@ import Resource from "../Resource/Resource";
 import TextInput from "../Forms/TextInput";
 import axios from "axios";
 import SelectOption from "../Forms/SelectOption";
+import SessionData from "../SessionData/SessionData";
 
 export class Sessions extends Component {
   constructor() {
@@ -76,7 +77,6 @@ export class Sessions extends Component {
   };
 
   render() {
-
     const OpeningHours = require("../JSON/OpeningHours.json");
     const Treatments = require("../JSON/Treatments.json");
 
@@ -86,7 +86,7 @@ export class Sessions extends Component {
           <h1 className="pb-3">Sessions</h1>
           <form className="row" onSubmit={this.handleSubmit} novalidate>
             <div className="form-row pb-2">
-            <TextInput
+              <TextInput
                 name="date"
                 onChange={this.handleChange}
                 placeholder="Date"
@@ -115,20 +115,20 @@ export class Sessions extends Component {
               />
               <div className="row g-2">
                 <TextInput
-                name="fee"
-                onChange={this.handleChange}
-                placeholder="Fee"
-              />
+                  name="fee"
+                  onChange={this.handleChange}
+                  placeholder="Fee"
+                />
                 <TextInput
-                name="number"
-                onChange={this.handleChange}
-                placeholder="Number"
-              />
+                  name="number"
+                  onChange={this.handleChange}
+                  placeholder="Number"
+                />
                 <TextInput
-                name="duration"
-                onChange={this.handleChange}
-                placeholder="Duration"
-              />
+                  name="duration"
+                  onChange={this.handleChange}
+                  placeholder="Duration"
+                />
               </div>
               <div className="p-2">
                 <button type="submit" class="btn btn-primary mb-3">
@@ -154,28 +154,7 @@ export class Sessions extends Component {
               path="http://localhost:5000/sessions"
               render={(data) => {
                 if (data.loading) return <p>Loading Sessions...</p>;
-                return (
-                  <div className="list">
-                    <table className="table table-striped">
-                      <thead>
-                        <tr>
-                          <th scope="col">Time</th>
-                          <th scope="col">Type</th>
-                          <th scope="col">Duration</th>
-                        </tr>
-                      </thead>
-                      {data.payload.map((item) => (
-                        <tbody key={item._id}>
-                          <tr>
-                            <td>{item.time}</td>
-                            <td>{item.type}</td>
-                            <td>{item.duration}</td>
-                          </tr>
-                        </tbody>
-                      ))}
-                    </table>
-                  </div>
-                );
+                return <SessionData sessionDetails={data.payload} />;
               }}
             />
           ) : null}

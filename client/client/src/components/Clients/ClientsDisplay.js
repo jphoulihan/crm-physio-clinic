@@ -1,6 +1,6 @@
 import React from "react";
 import Resource from "../Resource/Resource";
-import PersonalData from "../PersonalData/PersonalData";
+import SearchList from "../Search/SearchList";
 
 class ClientsDisplay extends React.Component {
   render() {
@@ -9,7 +9,7 @@ class ClientsDisplay extends React.Component {
         path="http://localhost:5000/clients"
         render={(data) => {
           if (data.loading) return <p>Loading Patients...</p>;
-          return <PersonalData personDetails={data.payload}/>;
+          return <SearchList personDetails={data.payload}/>;
         }}
       />
     );

@@ -10,14 +10,14 @@ function SelectOptionID(props) {
     return (
       <div className="mb-3">
         <select
-          class="form-select"
+          className="form-select"
           type="button"
           aria-label="Default select example"
           name={props.name}
           onChange={handleChange}
           required
         >
-          <option selected disabled value="">
+          <option defaultValue="">
             {props.description}
           </option>
           {data.map((item, index) => (

@@ -5,7 +5,7 @@ const FormGroupPersonInfo = (props) => {
   return (
     <div className="form-row pb-2">
       <TextInput name="title" onChange={handleChange} placeholder="Title" required={false}/>
-      <div class="row g-2">
+      <div className="row g-2">
         <TextInput
           name="fname"
           onChange={handleChange}

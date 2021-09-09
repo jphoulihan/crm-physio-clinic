@@ -85,7 +85,7 @@ export class Sessions extends Component {
       <div className="col-sm-4 m-2">
         <div className="session-form container-row w-100 pb-2">
           <h1 className="pb-3">Sessions</h1>
-          <form className="row" onSubmit={this.handleSubmit} novalidate>
+          <form className="row" onSubmit={this.handleSubmit} noValidate>
             <div className="form-row pb-2">
               <TextInput
                 name="date"
@@ -150,7 +150,7 @@ export class Sessions extends Component {
                 />
               </div>
               <div className="p-2">
-                <button type="submit" class="btn btn-primary mb-3">
+                <button type="submit" className="btn btn-primary mb-3">
                   Submit
                 </button>
               </div>

@@ -25,19 +25,12 @@ export class Physios extends Component {
     };
 
     this.toggleShowPhysios = this.toggleShowPhysios.bind(this);
-    // this.onSearchFormChange = this.onSearchFormChange.bind(this);
   }
 
   //show/hide all physios
   toggleShowPhysios = () => {
     this.setState((state) => ({ isPhysios: !state.isPhysios }));
   };
-
-  //getting keyboard inputs to later filter a search
-  // onSearchFormChange(event) {
-  //   this.setState({ searchTerm: event.target.value });
-  //   console.log(event.target.value);
-  // }
 
   //listens for keystrokes updates state by target name
   handleChange = (event) => {
@@ -93,7 +86,7 @@ export class Physios extends Component {
         {/*Physiotherapist Form*/}
         <div className="physio-form container-row">
           <h1 className="pb-4">Physiotherapist</h1>
-          <form className="row" onSubmit={this.handleSubmit} no validate>
+          <form className="row" onSubmit={this.handleSubmit} noValidate>
             <FormGroupPersonInfo handleChange={this.handleChange} />
             <FormGroupAddress handleChange={this.handleChange} />
             <div className="p-2">
@@ -120,65 +113,5 @@ export class Physios extends Component {
     );
   }
 }
-
-// //could not complete search functionality
-// class SearchForm extends Component {
-//   render() {
-//     /*this.props are the properties passed to this component
-//     / we have searchTerm and onChange function. Within the input
-//     / tag, notice the value of the input is assigned to the searchTerm state
-//     / previously an empty string. 
-//     / onChange event listener triggers the onSearchForm function 
-//     */
-//     const searchTermFromProps = this.props.searchTerm;
-//     const onChangeFromProps = this.props.onChange;
-
-//     return (
-//       <div className="input-group mb-3">
-//         <input
-//           type="text"
-//           class="form-control"
-//           placeholder="Physiotherapist"
-//           value={searchTermFromProps}
-//           onChange={onChangeFromProps}
-//           aria-describedby="basic-addon1"
-//         ></input>
-//       </div>
-//     );
-//   }
-// }
-
-// class SearchResults extends Component {
-//   //search for a physio in the physios array
-//   physioFilterFunction(searchTerm) {
-//     return function (physio) {
-//       let fname = physio.fname;
-//       let lname = physio.lname;
-
-//       return (
-//         searchTerm !== "" &&
-//         (fname.includes(searchTerm) || lname.includes(searchTerm))
-//       );
-//     };
-//   }
-
-//   render() {
-//     return (
-//       <table>
-//         {this.props.physioArray
-//           .filter(this.physioFilterFunction(this.props.searchTerm))
-//           .map((a) => (
-//             <tbody key={a._id}>
-//               {console.log(a.fname)}
-//               {console.log(a._id)}
-//               <td>{a.fname}</td>
-//               <td>{a.lname}</td>
-//               <td>{a._id}</td>
-//             </tbody>
-//           ))}
-//       </table>
-//     );
-//   }
-// }
 
 export default Physios;

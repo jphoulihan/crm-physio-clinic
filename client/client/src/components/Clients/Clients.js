@@ -93,7 +93,7 @@ export class Clients extends Component {
       <div className="col-sm m-2">
         <div className="client-form  container-row">
           <h1 className="pb-4">Patient</h1>
-          <form className="row" onSubmit={this.handleSubmit} noValidate>
+          <form className="row" onSubmit={this.handleSubmit} no validate>
             <FormGroupPersonInfo handleChange={this.handleChange} />
             <FormGroupAddress handleChange={this.handleChange} />
             <div className="p-2">

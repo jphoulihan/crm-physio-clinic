@@ -86,7 +86,7 @@ export class Physios extends Component {
         {/*Physiotherapist Form*/}
         <div className="physio-form container-row">
           <h1 className="pb-4">Physiotherapist</h1>
-          <form className="row" onSubmit={this.handleSubmit} noValidate>
+          <form className="row" onSubmit={this.handleSubmit} no validate>
             <FormGroupPersonInfo handleChange={this.handleChange} />
             <FormGroupAddress handleChange={this.handleChange} />
             <div className="p-2">

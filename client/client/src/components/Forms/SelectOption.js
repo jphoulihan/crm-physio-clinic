@@ -17,7 +17,7 @@ function SelectOption(props) {
         onChange={handleChange}
         required
       >
-        <option defaultValue="">
+        <option selected disabled value="">
           {props.description}
         </option>
         {data.map((item) => (

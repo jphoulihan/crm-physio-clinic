@@ -85,12 +85,13 @@ export class Sessions extends Component {
       <div className="col-sm-4 m-2">
         <div className="session-form container-row w-100 pb-2">
           <h1 className="pb-3">Sessions</h1>
-          <form className="row" onSubmit={this.handleSubmit} noValidate>
+          <form className="row" onSubmit={this.handleSubmit} no validate>
             <div className="form-row pb-2">
               <TextInput
                 name="date"
                 onChange={this.handleChange}
                 placeholder="Date"
+                required={true}
               />
               <SelectOption
                 name="time"
@@ -137,16 +138,19 @@ export class Sessions extends Component {
                   name="fee"
                   onChange={this.handleChange}
                   placeholder="Fee"
+                  required={true}
                 />
                 <TextInput
                   name="number"
                   onChange={this.handleChange}
                   placeholder="Number"
+                  required={true}
                 />
                 <TextInput
                   name="duration"
                   onChange={this.handleChange}
                   placeholder="Duration"
+                  required={true}
                 />
               </div>
               <div className="p-2">

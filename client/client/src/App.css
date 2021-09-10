@@ -2,6 +2,10 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  /* background-color: black; */
+ background-color:  #f7f7f7;
+}
+
+.header{
+  font-size:50px;
 }
 

@@ -33,7 +33,7 @@ class SearchList extends React.Component {
 
   render() {
     return (
-      <div className="search-list">
+      <div className="search-list" style={this.props.style}>
         <input
           type="text"
           className="form-control mt-1 mb-1"

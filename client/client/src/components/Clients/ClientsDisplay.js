@@ -11,7 +11,7 @@ class ClientsDisplay extends React.Component {
           if (data.loading) return <p>Loading Patients...</p>;
           return (
           <div>
-          <SearchList placeholder="Search Patients" personDetails={data.payload}/>;
+          <SearchList style={{backgroundColor:"#96e5aa"}} placeholder="Search Patients" personDetails={data.payload}/>
           </div>
           );
         }}

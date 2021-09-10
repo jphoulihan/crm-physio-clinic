@@ -1,5 +1,6 @@
 import React from "react";
 import PersonalDataFilter from "../PersonalData/PersonalDataFilter";
+import "./SearchList.css";
 
 class SearchList extends React.Component {
   constructor() {
@@ -32,17 +33,15 @@ class SearchList extends React.Component {
 
   render() {
     return (
-      <div>
-      <div className="input-group mb-3">
+      <div className="search-list">
         <input
           type="text"
-          className="form-control"
-          placeholder="Physiotherapist"
+          className="form-control mt-1 mb-1"
+          placeholder={this.props.placeholder}
           value={this.state.searchTerm}
           onChange={this.onSearchFormChange}
           aria-describedby="basic-addon1"
         ></input>
-      </div>
         <PersonalDataFilter
           personDetails={this.props.personDetails}
           filterFunction={this.filterFunction}

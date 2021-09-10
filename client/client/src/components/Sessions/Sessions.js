@@ -5,6 +5,7 @@ import axios from "axios";
 import SelectOption from "../Forms/SelectOption";
 import SessionData from "../SessionData/SessionData";
 import SelectOptionID from "../Forms/SelectOptionID";
+import "./Sessions.css";
 
 export class Sessions extends Component {
   constructor() {

@@ -11,7 +11,7 @@ class PhysiosDisplay extends React.Component {
           if (data.loading) return <p>Loading Patients...</p>;
           return (
             <div>
-              <SearchList personDetails={data.payload} />
+              <SearchList placeholder="Search Physiotherapist" personDetails={data.payload} />
             </div>
           );
         }}

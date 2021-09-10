@@ -1,3 +1,5 @@
+import "./PersonalData.css";
+
 
 const PersonalDataFilter = (props) => {
     const {filterFunction} = props;
@@ -8,7 +10,7 @@ const PersonalDataFilter = (props) => {
       {console.log(personDetails)}
         {personDetails.filter(filterFunction(searchTerm)
         ).map((person) => (
-          <ul className="list-group p-2" key={person._id}>
+          <ul className="list-group pb-2 pt-2" key={person._id}>
             <li className="list-group-item">
               {person.fname + " " + person.lname}
             </li>

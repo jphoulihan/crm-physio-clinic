@@ -9,7 +9,11 @@ class ClientsDisplay extends React.Component {
         path="http://localhost:5000/clients"
         render={(data) => {
           if (data.loading) return <p>Loading Patients...</p>;
-          return <SearchList personDetails={data.payload}/>;
+          return (
+          <div>
+          <SearchList placeholder="Search Patients" personDetails={data.payload}/>;
+          </div>
+          );
         }}
       />
     );

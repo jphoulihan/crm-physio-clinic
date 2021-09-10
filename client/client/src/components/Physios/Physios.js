@@ -3,6 +3,7 @@ import PhysiosDisplay from "./PhysiosDisplay";
 import axios from "axios";
 import FormGroupPersonInfo from "../Forms/FormGroupPersonInfo";
 import FormGroupAddress from "../Forms/FormGroupAddress";
+import "./Physios.css";
 
 export class Physios extends Component {
   constructor() {
@@ -101,7 +102,7 @@ export class Physios extends Component {
           <div>
             <button
               type="button"
-              className="btn btn-dark m-2"
+              className="btn btn-dark m-2 pb-2"
               onClick={this.toggleShowPhysios}
             >
               Show Physiotherapists

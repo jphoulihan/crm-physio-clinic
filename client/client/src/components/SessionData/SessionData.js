@@ -1,7 +1,9 @@
+import "./SessionData.css"
+
 const SessionData = (props) => {
   const { sessionDetails } = props;
   return (
-    <div className="list">
+    <div className="list seesion-data">
       <table className="table table-striped">
         <thead>
           <tr>

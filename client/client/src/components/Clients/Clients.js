@@ -3,6 +3,7 @@ import ClientsDisplay from "./ClientsDisplay";
 import axios from "axios";
 import FormGroupPersonInfo from "../Forms/FormGroupPersonInfo";
 import FormGroupAddress from "../Forms/FormGroupAddress";
+import "./Clients.css";
 
 export class Clients extends Component {
   constructor() {
@@ -104,15 +105,15 @@ export class Clients extends Component {
           </form>
         </div>
         <div className="row p-2">
-          <div className="show-clients">
+        <div>
             <button
               type="button"
-              className="btn  m-2 btn-dark"
+              className="btn btn-dark m-2 pb-2"
               onClick={this.toggleShowClients}
             >
               Show Patients
             </button>
-          </div>
+        </div>
           {this.state.isClients ? <ClientsDisplay /> : null}
         </div>
       </div>

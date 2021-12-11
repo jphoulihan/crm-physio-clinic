@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const mongoose = require("mongoose");
+require('dotenv').config({path:__dirname+'/./../../.env'})
 
-
-mongoose.connect(`mongodb+srv://new_tester_13:2TbR6EFo5rjLQ2Ke@cluster0.jcotz.mongodb.net/exam_230`, {
+mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS}@cluster0.jcotz.mongodb.net/${process.env.DB_NAME}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

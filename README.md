@@ -94,6 +94,9 @@ $ npm start
 ![alt text](images/filter-code-ex.png "in app response")<br/><br/>
 ### Render props technique (a simple technique for sharing code between React components) to compartmentalize requests for a flexible reusable component<br/><br/>
 ![alt text](images/comp-reuse-get.png "in app response")<br/><br/>
+### Render props in use<br />
+![alt text](images/renprop.png "in app response")<br/><br/>
+
 
 
 <br/><br/>

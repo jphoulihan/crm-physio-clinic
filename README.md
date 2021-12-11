@@ -39,24 +39,24 @@ _id's within the session document reduces file size if the db were to grow, vs t
 client or physio documents or embedding physio/client docs in sessions.__
 <br/><br/>
 
-## Through Node the client has full CRUD functionality of all endpoints
-## Fonrt-end functionality allows creation and retrieval of all endpoints 
+### Through Node the client has full CRUD functionality of all endpoints
+### Front-end offers creation and retrieval of all endpoints 
 <br/>
 
 
 ## **Post request for client insertion**
 
 
-![alt text](post-console-output.png "samp console output post")<br/><br><br/><br/>
+![alt text](images/post-console-output.png "samp console output post")<br/><br><br/><br/>
 
 
 ## **Session form and table**
 
-![alt text](session-front-end.png "in app response")<br/><br/>
+![alt text](images/session-front-end.png "in app response")<br/><br/>
 
 ## **Physio form and table**
 
-![alt text](physio-front-end.png "in app response")<br/><br/>
+![alt text](images/physio-front-end.png "in app response")<br/><br/>
 
 ### **All result tables of the front end are searchable through text input box and provide live update on the list**<br /><br />
 
@@ -91,9 +91,9 @@ $ npm start
 ### Complete CRUD operations on Node server with Express and Mongoose
 ### Form control with back and front-end required fields
 ### Filter lists in React components <br/><br />
-![alt text](filter-code-ex.png "in app response")<br/><br/>
+![alt text](images/filter-code-ex.png "in app response")<br/><br/>
 ### Render props technique (a simple technique for sharing code between React components) to compartmentalize requests for a flexible reusable component<br/><br/>
-![alt text](comp-reuse-get.png "in app response")<br/><br/>
+![alt text](images/comp-reuse-get.png "in app response")<br/><br/>
 
 
 <br/><br/>

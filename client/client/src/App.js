@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <div className="row m-5">
-      <h1 className="header p-2">Physiotherapy Clinic </h1>
+      <h1 className="header p-2">Physiotherapy Clinic</h1>
         <Clients/>
         <Physios/> 
         <Sessions/>

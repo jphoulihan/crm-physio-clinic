@@ -3,6 +3,7 @@ import Resource from "../Resource/Resource";
 import SearchList from "../Search/SearchList";
 
 class ClientsDisplay extends React.Component {
+
   render() {
     return (
       <Resource
@@ -11,7 +12,7 @@ class ClientsDisplay extends React.Component {
           if (data.loading) return <p>Loading Patients...</p>;
           return (
           <div>
-          <SearchList style={{backgroundColor:"#96e5aa"}} placeholder="Search Patients" personDetails={data.payload}/>
+          <SearchList style={{backgroundColor:"#96e5aa"}} placeholder="Search Patients" personDetails={data.payload} endpoint={"clients"}/>
           </div>
           );
         }}

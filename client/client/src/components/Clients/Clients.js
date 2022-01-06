@@ -98,7 +98,7 @@ export class Clients extends Component {
             <FormGroupPersonInfo handleChange={this.handleChange} />
             <FormGroupAddress handleChange={this.handleChange} />
             <div className="p-2">
-              <button type="submit" className="btn btn-primary mb-3">
+              <button type="submit" className="btn btn-primary shadow-none mb-3">
                 Submit
               </button>
             </div>
@@ -108,7 +108,7 @@ export class Clients extends Component {
         <div>
             <button
               type="button"
-              className="btn btn-dark m-2 pb-2"
+              className="btn btn-dark shadow-none m-2 pb-2"
               onClick={this.toggleShowClients}
             >
               Show Patients

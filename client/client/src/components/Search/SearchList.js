@@ -44,6 +44,7 @@ class SearchList extends React.Component {
         ></input>
         <PersonalDataFilter
           personDetails={this.props.personDetails}
+          endpoint={this.props.endpoint}
           filterFunction={this.filterFunction}
           searchTerm={this.state.searchTerm}
         />

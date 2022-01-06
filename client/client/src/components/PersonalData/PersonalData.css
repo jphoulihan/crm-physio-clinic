@@ -1,3 +1,14 @@
 .list{
     margin: 0;
 }
+
+.btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited{
+    background-color: #FFE2AB!important;
+    border-color: #FFE2AB!important;
+}
+
+.btn-danger, .btn-danger:hover, .btn-danger:active, .btn-danger:visited{
+    background-color: #FFC4C4 !important;
+    border-color: #FFC4C4 !important;
+    
+}

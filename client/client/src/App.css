@@ -9,3 +9,16 @@
   font-size:50px;
 }
 
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-primary:focus {
+  background-color: #80D1FF !important;
+  border-color: #80D1FF !important;
+ 
+}
+
+.btn-dark, .btn-dark:hover, .btn-dark:active, .btn-dark:visited, .btn-primary:focus{
+  background-color: #8292FF !important;
+  border-color: #8292FF !important;
+}
+
+
+

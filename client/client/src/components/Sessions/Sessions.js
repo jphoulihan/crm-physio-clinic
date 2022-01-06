@@ -37,7 +37,6 @@ export class Sessions extends Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
-    console.log(event.target.value);
   };
 
   //on form submission prepares req.body for posting
@@ -155,7 +154,7 @@ export class Sessions extends Component {
                 />
               </div>
               <div className="p-2">
-                <button type="submit" className="btn btn-primary mb-3">
+                <button type="submit" className="btn btn-primary shadow-none mb-3">
                   Submit
                 </button>
               </div>
@@ -167,7 +166,7 @@ export class Sessions extends Component {
           <div>
             <button
               type="button"
-              className="btn  m-2 btn-dark"
+              className="btn  m-2 btn-dark shadow-none"
               onClick={this.toggleSessions}
             >
               Show All Sessions

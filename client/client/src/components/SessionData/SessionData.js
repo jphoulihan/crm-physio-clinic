@@ -24,11 +24,11 @@ const SessionData = (props) => {
               <Resource
                 path="http://localhost:5000/physios"
                 render={(data) => {
-                  if (data.loading) return <p>Loading Sessions...</p>;
+                  if (data.loading) return <td><b>Loading Sessions...</b></td>;
                   return data.payload.map(
                     (item) =>
                       session.physio_id === item._id && (
-                        <td>{item.fname + " " + item.lname}</td>
+                        <td key={item._id}>{item.fname + " " + item.lname}</td>
                       )
                   );
                 }}

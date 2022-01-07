@@ -1,6 +1,7 @@
 import {useState} from "react";
 import axios from 'axios';
 import "./PersonalData.css";
+import Modal from "../Modal/Modal";
 //solution 1, pass endpoint down to this component to delete from relevant collection
 const PersonalDataFilter = (props) => {
   
@@ -10,6 +11,7 @@ const PersonalDataFilter = (props) => {
   const {endpoint} = props;
 
   const [list, setList] = useState(personDetails);
+  const [show, setShow] = useState(false);
 
   function HandleRemove(id){
     console.log(id);
@@ -31,8 +33,9 @@ const PersonalDataFilter = (props) => {
       {list.filter(filterFunction(searchTerm)
       ).map((person) => (
         <ul className="list-group pb-2 pt-2" key={person._id}>
-          <div className="btn-group pb-1 pt-2">
-          <button type="button" className="btn btn-success btn-block shadow-none">Update</button>
+          <div className="btn-group pt-2">
+          <button type="button" className="btn btn-success btn-block shadow-none" onClick={() => setShow(true)}>Update</button>
+          <Modal show={show} onClose={() => setShow(false)}/>
           <button type="button" className="btn btn-danger btn-block shadow-none" onClick={()=> HandleRemove(person._id)}>Delete</button>
           </div>
           <li className="list-group-item">

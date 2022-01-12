@@ -27,15 +27,19 @@ const PersonalDataFilter = (props) => {
   }
 
   function handleRemove(id) {
-    const newList = list.filter((item) => item._id !== id);
-    setList(newList);
 
-    axios
-      .delete(`http://localhost:5000/${endpoint}/${id}`)
-      .then(() => console.log("Client deleted"))
-      .catch((err) => {
-        console.error(err);
-      });
+    if(window.confirm('Are you sure you want to delete this item?')){
+      const newList = list.filter((item) => item._id !== id);
+      setList(newList);
+  
+      axios
+        .delete(`http://localhost:5000/${endpoint}/${id}`)
+        .then(() => console.log("Client deleted"))
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+
   }
 
   return (

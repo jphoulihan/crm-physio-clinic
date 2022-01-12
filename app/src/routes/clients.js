@@ -130,7 +130,6 @@ router.patch("/:id", getClient, async (req, res) => {
   try{
       const updateClient = await res.client.save();
       res.json(updateClient);
-      console.log("HELOO")
   } catch (err) {
         res.status(400).json({message: err.message});
   }

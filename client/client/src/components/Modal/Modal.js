@@ -25,7 +25,7 @@ const OVERLAY_STYLES = {
   zIndex: 1000,
 };
 
-const Modal = ({ id, onClose, endpoint}) => {
+const Modal = ({id, onClose, endpoint}) => {
 
   const title = useInput(id.title);
   const fname = useInput(id.fname);
@@ -59,24 +59,20 @@ const Modal = ({ id, onClose, endpoint}) => {
       }
     };
 
-
-    console.log(update)
-
     axios
-      .patch(`http://localhost:5000/${endpoint}/${id._id}`, update)
-      .then(() => console.log("Entry Updated"))
-      .catch((err) => {
-        console.error(err.response);
-      });
+    .patch(`http://localhost:5000/${endpoint}/${id._id}`, update)
+    .then(() => console.log("Entry Updated"))
+    .catch((err) => {
+      console.error(err.response);
+    });
 
-      alert("Entry Updated");
-    
+    alert("Entry Updated");
   };
 
   return (
     <div style={OVERLAY_STYLES}>
       <div className="modal-form  container-row m-2" style={MODAL_STYLES}>
-        <h1 className="pb-4">Update {}</h1>
+        <h1 className="pb-4">Update {endpoint.charAt(0).toUpperCase() + endpoint.slice(1)}</h1>
         <form className="row" onSubmit={submitForm} no validate>
           <div className="form-row pb-2">
             <UpdateInput

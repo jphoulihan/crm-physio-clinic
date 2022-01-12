@@ -13,7 +13,20 @@ const PersonalDataFilter = (props) => {
   const [list, setList] = useState(personDetails);
   const [show, setShow] = useState(undefined);
 
-  function HandleRemove(id) {
+  function handleUpdate(){
+
+    const updateList = axios
+      .get(`http://localhost:5000/${endpoint}`)
+      .then((updateList) => setList(updateList.data))
+      .catch((err) => {
+        console.error(err);
+      });
+
+    setShow(undefined)
+    return updateList;
+  }
+
+  function handleRemove(id) {
     const newList = list.filter((item) => item._id !== id);
     setList(newList);
 
@@ -40,7 +53,7 @@ const PersonalDataFilter = (props) => {
             <button
               type="button"
               className="btn btn-danger btn-block shadow-none"
-              onClick={() => HandleRemove(person._id)}
+              onClick={() => handleRemove(person._id)}
             >
               Delete
             </button>
@@ -50,7 +63,7 @@ const PersonalDataFilter = (props) => {
           </li>
           <li className="list-group-item">{person.email}</li>
           <li className="list-group-item">{person.mobile}</li>
-          {show === person._id ? <Modal endpoint={endpoint} show={show} id={person} onClose={()=> setShow(undefined)}/> : null}
+          {show === person._id ? <Modal endpoint={endpoint} id={person} onClose={()=> handleUpdate()}/> : null}
         </ul>
       ))}
     </div>

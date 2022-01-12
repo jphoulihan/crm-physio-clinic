@@ -39,24 +39,21 @@ const Modal = ({ id, onClose, endpoint}) => {
   const county_city = useInput(id.address.county_city);
   const eircode = useInput(id.address.eircode);
 
-
-  console.log(title)
-
   const submitForm = (event) => {
     event.preventDefault();
 
     const update = {
-      title: title,
-      fname: fname,
-      lname: lname,
-      mobile: mobile,
-      phone: phone,
-      email: email,
-      add_line_1: add_line_1,
-      add_line_2: add_line_2,
-      town: town,
-      county_city: county_city,
-      eircode: eircode,
+      title: title.value,
+      fname: fname.value,
+      lname: lname.value,
+      mobile: mobile.value,
+      phone: phone.value,
+      email: email.value,
+      add_line_1: add_line_1.value,
+      add_line_2: add_line_2.value,
+      town: town.value,
+      county_city: county_city.value,
+      eircode: eircode.value,
     };
 
 
@@ -66,7 +63,7 @@ const Modal = ({ id, onClose, endpoint}) => {
       .patch(`http://localhost:5000/${endpoint}/${id._id}`, update)
       .then(() => console.log("Entry Updated"))
       .catch((err) => {
-        console.error(err);
+        console.error(err.response);
       });
 
       alert("Entry Updated");
@@ -81,6 +78,7 @@ const Modal = ({ id, onClose, endpoint}) => {
           <div className="form-row pb-2">
             <UpdateInput
               name="title"
+              type="text"
               onChange={title.onChange}
               value={title.value}
               required={false}
@@ -88,12 +86,14 @@ const Modal = ({ id, onClose, endpoint}) => {
             <div className="row g-2">
               <UpdateInput
                 name="fname"
+                type="text"
                 onChange={fname.onChange}
                 value={fname.value}
                 required={true}
               />
               <UpdateInput
                 name="lname"
+                type="text"
                 onChange={lname.onChange}
                 value={lname.value}
                 required={true}
@@ -101,17 +101,20 @@ const Modal = ({ id, onClose, endpoint}) => {
             </div>
             <UpdateInput
               name="mobile"
+              type="text"
               onChange={mobile.onChange}
               value={mobile.value}
               required={true}
             />
             <UpdateInput
               name="phone"
+              type="text"
               onChange={phone.onChange}
               value={phone.value}
             />
             <UpdateInput
               name="email"
+              type="text"
               onChange={email.onChange}
               value={email.value}
               required={true}
@@ -122,30 +125,35 @@ const Modal = ({ id, onClose, endpoint}) => {
               <h5 className="mb-3">Address</h5>
               <UpdateInput
                 name="add_line_1"
+                type="text"
                 onChange={add_line_1.onChange}
                 value={add_line_1.value}
                 required={true}
               />
               <UpdateInput
                 name="add_line_2"
+                type="text"
                 onChange={add_line_2.onChange}
                 value={add_line_2.value}
                 required={false}
               />
               <UpdateInput
                 name="town"
+                type="text"
                 onChange={town.onChange}
                 value={town.value}
                 required={true}
               />
               <UpdateInput
                 name="county_city"
+                type="text"
                 onChange={county_city.onChange}
                 value={county_city.value}
                 required={true}
               />
               <UpdateInput
                 name="eircode"
+                type="text"
                 onChange={eircode.onChange}
                 value={eircode.value}
                 required={false}

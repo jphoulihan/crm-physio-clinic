@@ -112,21 +112,21 @@ router.patch("/:id", getClient, async (req, res) => {
     res.client.email = req.body.email;
   }
   //update address section if not null
-  if (req.body.address.add_line_1 != null) {
-    res.client.address.add_line_1 = req.body.address.add_line_1;
-  }
-  if (req.body.address.add_line_2 != null) {
-    res.client.address.add_line_2 = req.body.address.add_line_2;
-  }
-  if (req.body.address.town != null) {
-    res.client.address.town = req.body.address.town;
-  }
-  if (req.body.address.county_city != null) {
-    res.client.address.county_city = req.body.address.county_city;
-  }
-  if (req.body.address.eircode != null) {
-    res.client.address.eircode = req.body.address.eircode;
-  }
+  // if (req.body.address.add_line_1 != null) {
+  //   res.client.address.add_line_1 = req.body.address.add_line_1;
+  // }
+  // if (req.body.address.add_line_2 != null) {
+  //   res.client.address.add_line_2 = req.body.address.add_line_2;
+  // }
+  // if (req.body.address.town != null) {
+  //   res.client.address.town = req.body.address.town;
+  // }
+  // if (req.body.address.county_city != null) {
+  //   res.client.address.county_city = req.body.address.county_city;
+  // }
+  // if (req.body.address.eircode != null) {
+  //   res.client.address.eircode = req.body.address.eircode;
+  // }
   try{
       const updateClient = await res.client.save();
       res.json(updateClient);

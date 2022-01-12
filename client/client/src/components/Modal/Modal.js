@@ -49,11 +49,14 @@ const Modal = ({ id, onClose, endpoint}) => {
       mobile: mobile.value,
       phone: phone.value,
       email: email.value,
+      address:
+      {
       add_line_1: add_line_1.value,
       add_line_2: add_line_2.value,
       town: town.value,
       county_city: county_city.value,
       eircode: eircode.value,
+      }
     };
 
 

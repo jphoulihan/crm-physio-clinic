@@ -35,7 +35,7 @@ router.get("/:id", getSession, async (req,res) => {
 
 //no ebedded arrays so we try with the original backend post
 router.post("/", async (req,res) => {
-    console.log(req.body,null,2);
+    console.log(req.body);
     const session = new Session({
         date: req.body.date,
         time: req.body.time,

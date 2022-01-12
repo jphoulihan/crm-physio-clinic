@@ -16,7 +16,6 @@ class SearchList extends React.Component {
   //getting keyboard inputs to later filter a search
   onSearchFormChange(event) {
     this.setState({ searchTerm: event.target.value });
-    console.log(event.target.value);
   }
 
   filterFunction(searchTerm) {

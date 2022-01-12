@@ -32,11 +32,6 @@ export class Clients extends Component {
     this.setState((state) => ({ isClients: !state.isClients }));
   };
 
-  validateEmail(email) {
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email);
-  }
-
   //listens for keystrokes updates state by target name
   handleChange = (event) => {
     this.setState({
@@ -59,10 +54,6 @@ export class Clients extends Component {
       county_city,
       eircode,
     } = this.state;
-
-    // if (this.validateEmail(this.state.email) !== true) {
-    //   this.setState({ showModal: true });
-    // }
 
     const client = {
       title,

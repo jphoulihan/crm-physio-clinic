@@ -58,7 +58,7 @@ client or physio documents or embedding physio/client docs in sessions.__
 
 ![alt text](images/physio-front-end.png "in app response")<br/><br/>
 
-## **Data retrievel with list icons and update/delete feature**
+## **Data retrieval with list icons and update/delete feature**
 
 ![alt text](images/update-delete.png "in app response")<br/><br/>
 

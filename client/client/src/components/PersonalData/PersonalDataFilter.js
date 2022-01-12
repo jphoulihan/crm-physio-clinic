@@ -1,4 +1,6 @@
 import { useState } from "react";
+import {FaPhoneAlt} from 'react-icons/fa'
+import {MdEmail, MdPerson} from 'react-icons/md'
 import axios from "axios";
 import "./PersonalData.css";
 import Modal from "../Modal/Modal";
@@ -63,10 +65,10 @@ const PersonalDataFilter = (props) => {
             </button>
           </div>
           <li className="list-group-item">
-            {person.fname + " " + person.lname}
+          <MdPerson/> <i>{person.fname + " " + person.lname}</i>
           </li>
-          <li className="list-group-item">{person.email}</li>
-          <li className="list-group-item">{person.mobile}</li>
+          <li className="list-group-item"><MdEmail/><i>{person.email}</i></li>
+          <li className="list-group-item"><FaPhoneAlt/><i>{person.mobile}</i></li>
           {show === person._id ? <Modal endpoint={endpoint} id={person} onClose={()=> handleUpdate()}/> : null}
         </ul>
       ))}

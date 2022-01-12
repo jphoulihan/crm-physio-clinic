@@ -1,5 +1,10 @@
 .list{
     margin: 0;
+    text-align: left;
+}
+
+i{
+    padding-left: 3em;
 }
 
 .btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited{

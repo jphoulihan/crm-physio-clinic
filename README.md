@@ -40,7 +40,7 @@ client or physio documents or embedding physio/client docs in sessions.__
 <br/><br/>
 
 ### Through Node the client has full CRUD functionality of all endpoints
-### Front-end offers creation and retrieval of all endpoints 
+### Front-end also offers full CRUD functionality 
 <br/>
 
 
@@ -58,7 +58,15 @@ client or physio documents or embedding physio/client docs in sessions.__
 
 ![alt text](images/physio-front-end.png "in app response")<br/><br/>
 
-### **All result tables of the front end are searchable through text input box and provide live update on the list**<br /><br />
+## **Data retrievel with list icons and update/delete buttons**
+
+![alt text](images/update-delete.png "in app response")<br/><br/>
+
+## **Update modal**
+
+![alt text](images/update.png "in app response")<br/><br/>
+
+### **All result tables of the front end are searchable through text input box and provide live updates on the list with update and delete functionality**<br /><br />
 
 
 # **To Run This Project**
@@ -103,7 +111,7 @@ $ npm start
 
 # **Future Development**
 
-### Add Patch and Delete Functionality to the front-end
+### ~~Add Patch and Delete Functionality to the front-end~~ <em>Task Complete</em>
 ### Create a more appealing way to add time and date to the Session creation
 ### Deploy Application to the web 
 <br /><br />

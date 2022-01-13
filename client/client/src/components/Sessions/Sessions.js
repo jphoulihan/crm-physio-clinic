@@ -177,7 +177,7 @@ export class Sessions extends Component {
               path="http://localhost:5000/sessions"
               render={(data) => {
                 if (data.loading) return <p>Loading Sessions...</p>;
-                return <SessionData sessionDetails={data.payload} />;
+                return <SessionData sessionDetails={data.payload} endpoint={'sessions'} />;
               }}
             />
           ) : null}

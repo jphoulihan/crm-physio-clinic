@@ -66,6 +66,10 @@ client or physio documents or embedding physio/client docs in sessions.__
 
 ![alt text](images/update.png "in app response")<br/><br/>
 
+## **Session update feature**
+
+![alt text](images/session-update.png "in app response")<br/><br/>
+
 ### **All result tables of the front end are searchable through text input box and provide live updates on the list with update and delete functionality**<br /><br />
 
 

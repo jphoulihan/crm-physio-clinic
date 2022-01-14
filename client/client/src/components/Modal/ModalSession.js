@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios';
 import UpdateInput from "../Forms/UpdateInput";
 import useInput from "../Forms/UseInput";
 import moment from "moment";
@@ -36,6 +37,31 @@ const ModalSession = ({id, endpoint, onClose}) => {
     const number = useInput(id.number)
     const duration = useInput(id.duration)
 
+    const submitForm = (event) => {
+
+      event.preventDefault();
+  
+      const update = {
+        date: date.value,
+        time: time.value,
+        cleint_id: client,
+        physio_id: physio,
+        fee: fee.value,
+        number: number.value,
+        duration: duration.value,
+        type: type.value
+        }
+  
+      axios
+      .patch(`http://localhost:5000/${endpoint}/${id._id}`, update)
+      .then(() => console.log("Entry Updated"))
+      .catch((err) => {
+        console.error(err.response);
+      });
+  
+      alert("Entry Updated");
+    };
+
   return (
     <div style={OVERLAY_STYLES}>
       <div className="modal-form  container-row m-2" style={MODAL_STYLES}>
@@ -44,36 +70,42 @@ const ModalSession = ({id, endpoint, onClose}) => {
           <div className="form-row pb-2">
             <UpdateInput
               name="date"
+              label='Date'
               value={date.value}
               onChange={date.onChange}
               type="text"
             />
             <UpdateInput
               name="time"
+              label='Time'
               value={time.value}
               onChange={time.onChange}
               type="text"
             />
             <UpdateInput
               name="type"
+              label='Type'
               value={type.value}
               onChange={type.onChange}
               type="text"
             />
             <UpdateInput
               name="fee"
+              label='Fee'
               value={fee.value}
               onChange={fee.onChange}
               type="text"
             />
             <UpdateInput
             name="number"
+            label='Number'
             value={number.value}
             onChange={number.onChange}
             type="text"
           />
           <UpdateInput
             name="duration"
+            label='Duration'
             value={duration.value}
             onChange={duration.onChange}
             type="text"

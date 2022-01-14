@@ -3,6 +3,8 @@ function UpdateInput(props) {
     const {required} = props;
 
     return (
+      <div className="form-group row">
+    <label className="col-sm-2 col-form-label">{props.label}</label>
       <div className="col mb-3">
         <input
           type="text"
@@ -12,6 +14,7 @@ function UpdateInput(props) {
           onChange={props.onChange}
           required={required}
         />
+      </div>
       </div>
     );
   }

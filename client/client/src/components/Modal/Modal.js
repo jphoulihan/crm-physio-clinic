@@ -77,14 +77,15 @@ const Modal = ({id, onClose, endpoint}) => {
           <div className="form-row pb-2">
             <UpdateInput
               name="title"
+              label='Title'
               type="text"
               onChange={title.onChange}
               value={title.value}
               required={false}
             />
-            <div className="row g-2">
               <UpdateInput
                 name="fname"
+                label={'First Name'}
                 type="text"
                 onChange={fname.onChange}
                 value={fname.value}
@@ -92,14 +93,15 @@ const Modal = ({id, onClose, endpoint}) => {
               />
               <UpdateInput
                 name="lname"
+                label={'Surname'}
                 type="text"
                 onChange={lname.onChange}
                 value={lname.value}
                 required={true}
               />
-            </div>
             <UpdateInput
               name="mobile"
+              label={'Mobile'}
               type="text"
               onChange={mobile.onChange}
               value={mobile.value}
@@ -107,12 +109,14 @@ const Modal = ({id, onClose, endpoint}) => {
             />
             <UpdateInput
               name="phone"
+              label={'Phone'}
               type="text"
               onChange={phone.onChange}
               value={phone.value}
             />
             <UpdateInput
               name="email"
+              label={'Email'}
               type="text"
               onChange={email.onChange}
               value={email.value}
@@ -124,6 +128,7 @@ const Modal = ({id, onClose, endpoint}) => {
               <h5 className="mb-3">Address</h5>
               <UpdateInput
                 name="add_line_1"
+                label={'Line 1'}
                 type="text"
                 onChange={add_line_1.onChange}
                 value={add_line_1.value}
@@ -131,6 +136,7 @@ const Modal = ({id, onClose, endpoint}) => {
               />
               <UpdateInput
                 name="add_line_2"
+                label={'Line 2'}
                 type="text"
                 onChange={add_line_2.onChange}
                 value={add_line_2.value}
@@ -138,6 +144,7 @@ const Modal = ({id, onClose, endpoint}) => {
               />
               <UpdateInput
                 name="town"
+                label={'Town'}
                 type="text"
                 onChange={town.onChange}
                 value={town.value}
@@ -145,6 +152,7 @@ const Modal = ({id, onClose, endpoint}) => {
               />
               <UpdateInput
                 name="county_city"
+                label={'County/City'}
                 type="text"
                 onChange={county_city.onChange}
                 value={county_city.value}
@@ -152,6 +160,7 @@ const Modal = ({id, onClose, endpoint}) => {
               />
               <UpdateInput
                 name="eircode"
+                label={'Eircode'}
                 type="text"
                 onChange={eircode.onChange}
                 value={eircode.value}

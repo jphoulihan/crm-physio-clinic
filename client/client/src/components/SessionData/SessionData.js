@@ -14,6 +14,19 @@ const SessionData = (props) => {
   const [show, setShow] = useState(undefined);
   const [list, setList] = useState(sessionDetails);
 
+  function handleUpdate(){
+
+    const updateList = axios
+      .get(`http://localhost:5000/${endpoint}`)
+      .then((updateList) => setList(updateList.data))
+      .catch((err) => {
+        console.error(err);
+      });
+
+    setShow(undefined)
+    return updateList;
+  }
+
   function handleRemove(id) {
 
     if(window.confirm('Are you sure you want to delete this item?')){
@@ -77,7 +90,7 @@ const SessionData = (props) => {
               {show === session._id ? (
                 <ModalSession
                 id={session}
-                onClose={() => setShow(undefined)}
+                onClose={() => handleUpdate()}
                 endpoint={endpoint}
                 />
               ) : null}

@@ -44,12 +44,12 @@ const ModalSession = ({id, endpoint, onClose}) => {
       const update = {
         date: date.value,
         time: time.value,
+        type: type.value,
         cleint_id: client,
         physio_id: physio,
         fee: fee.value,
         number: number.value,
-        duration: duration.value,
-        type: type.value
+        duration: duration.value
         }
   
       axios
@@ -66,7 +66,7 @@ const ModalSession = ({id, endpoint, onClose}) => {
     <div style={OVERLAY_STYLES}>
       <div className="modal-form  container-row m-2" style={MODAL_STYLES}>
         <h1 className="pb-4">Update {endpoint.charAt(0).toUpperCase() + endpoint.slice(1)}</h1>
-        <form className="row" no validate>
+        <form className="row" onSubmit={submitForm} no validate>
           <div className="form-row pb-2">
             <UpdateInput
               name="date"

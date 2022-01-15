@@ -51,6 +51,8 @@ const ModalSession = ({id, endpoint, onClose}) => {
         number: number.value,
         duration: duration.value
         }
+
+        console.log(update)
   
       axios
       .patch(`http://localhost:5000/${endpoint}/${id._id}`, update)

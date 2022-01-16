@@ -76,24 +76,24 @@ client or physio documents or embedding physio/client docs in sessions.__
 # **To Run This Project**
 
 ```
-$ git clone https://github.com/jphoulihan/crm-physio-clinic.git
+git clone https://github.com/jphoulihan/crm-physio-clinic.git
 ```
 <br/>
 
 _For both app directory and client directory_
 
 ```
-$ npm i
+npm i
 ```
 
 _Run in app directory_
 ```
-$ node app.js
+node app.js
 ```
 
 _Run in client directory_
 ```
-$ npm start
+npm start
 ```
 
 <br/><br/>

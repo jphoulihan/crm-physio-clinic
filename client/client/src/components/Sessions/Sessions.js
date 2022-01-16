@@ -1,11 +1,14 @@
+import axios from "axios";
 import React, { Component } from "react";
 import Resource from "../Resource/Resource";
 import TextInput from "../Forms/TextInput";
-import axios from "axios";
+import DatePicker from "react-datepicker";
 import SelectOption from "../Forms/SelectOption";
 import SessionData from "../SessionData/SessionData";
 import SelectOptionID from "../Forms/SelectOptionID";
+
 import "./Sessions.css";
+import "react-datepicker/dist/react-datepicker.css";
 
 export class Sessions extends Component {
   constructor() {
@@ -13,7 +16,7 @@ export class Sessions extends Component {
     this.state = {
       sessions: [],
       isSessions: false,
-      date: "",
+      date: new Date(),
       time: "",
       client_id: "",
       physio_id: "",
@@ -25,12 +28,17 @@ export class Sessions extends Component {
     };
 
     this.toggleSessions = this.toggleSessions.bind(this);
+    this.dateSelect = this.dateSelect.bind(this);
   }
 
   //show/hide all physios
   toggleSessions = () => {
     this.setState((state) => ({ isSessions: !state.isSessions }));
   };
+
+  dateSelect(date) {
+    this.setState({date: date})
+  }
 
   //listens for keystrokes updates state by target name
   handleChange = (event) => {
@@ -87,12 +95,9 @@ export class Sessions extends Component {
           <h1 className="pb-3">Sessions</h1>
           <form className="row" onSubmit={this.handleSubmit} no validate>
             <div className="form-row pb-2">
-              <TextInput
-                name="date"
-                onChange={this.handleChange}
-                placeholder="Date"
-                required={true}
-              />
+            <div className="col mb-3">
+              <DatePicker name='date' className="date-picker" selected={this.state.date} onChange={this.dateSelect} required={true}/>
+              </div>
               <SelectOption
                 name="time"
                 description={"Select Time"}

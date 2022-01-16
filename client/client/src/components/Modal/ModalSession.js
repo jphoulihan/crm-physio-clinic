@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import axios from 'axios';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import UpdateInput from "../Forms/UpdateInput";
 import useInput from "../Forms/UseInput";
-import moment from "moment";
+
 import "./Modal.css";
 
 const MODAL_STYLES = {
@@ -28,7 +30,10 @@ const OVERLAY_STYLES = {
 
 const ModalSession = ({id, endpoint, onClose}) => {
 
-    const date = useInput(moment(id.date).format("YY/MM/DD"))
+    const [startDate, setStartDate] = useState(new Date(id.date));
+    // const [time, setTime] = useState('');
+
+    // const date = useInput(moment(id.date).format("YY/MM/DD"))
     const time = useInput(id.time)
     const type = useInput(id.type)
     const fee = useInput(id.fee)
@@ -42,7 +47,7 @@ const ModalSession = ({id, endpoint, onClose}) => {
       event.preventDefault();
   
       const update = {
-        date: date.value,
+        date: startDate,
         time: time.value,
         type: type.value,
         cleint_id: client,
@@ -51,8 +56,6 @@ const ModalSession = ({id, endpoint, onClose}) => {
         number: number.value,
         duration: duration.value
         }
-
-        console.log(update)
   
       axios
       .patch(`http://localhost:5000/${endpoint}/${id._id}`, update)
@@ -70,13 +73,12 @@ const ModalSession = ({id, endpoint, onClose}) => {
         <h1 className="pb-4">Update {endpoint.charAt(0).toUpperCase() + endpoint.slice(1)}</h1>
         <form className="row" onSubmit={submitForm} no validate>
           <div className="form-row pb-2">
-            <UpdateInput
-              name="date"
-              label='Date'
-              value={date.value}
-              onChange={date.onChange}
-              type="text"
-            />
+          <div className="form-group row">
+    <label className="col-sm-2 col-form-label">Date</label>
+      <div className="col mb-3">
+          <DatePicker className="date-picker" selected={startDate} onChange={(date) => setStartDate(date)}/>
+          </div>
+      </div>
             <UpdateInput
               name="time"
               label='Time'

@@ -76,7 +76,7 @@ client or physio documents or embedding physio/client docs in sessions.__
 # **To Run This Project**
 
 ```
-git clone https://github.com/jphoulihan/crm-physio-clinic.git
+clone https://github.com/jphoulihan/crm-physio-clinic.git
 ```
 <br/>
 

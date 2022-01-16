@@ -116,7 +116,7 @@ $ npm start
 # **Future Development**
 
 ### ~~Add Patch and Delete Functionality to the front-end~~ <em>Task Complete</em>
-### Create a more appealing way to add time and date to the Session creation
+### ~~Create a more appealing way to add time and date to the Session creation~~ <em>Task Complete</em>
 ### Deploy Application to the web 
 <br /><br />
 

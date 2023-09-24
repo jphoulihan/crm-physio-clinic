@@ -93,7 +93,7 @@ node app.js
 
 _Run in client directory_
 ```
-npm start
+npm run start
 ```
 
 <br/><br/>
